@@ -1,0 +1,29 @@
+<div class="w-1/4 text-right">
+        <div class="login-form">
+                <form method="post" action="{{ path('app_login') }}" onsubmit="return checkBlockedUser();">
+                        <div>
+                                <input type="email" id="_email" name="_email" required placeholder="Email" />
+                                <input type="password" id="_password" name="_password" required placeholder="Mot de passe" />
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                                <button type="submit">Se connecter</button>
+                        </div>
+                </form>
+        </div>
+        <script>
+                async function checkBlockedUser() {
+                        const email = document.getElementById('_email').value;
+                        const response = await fetch('/check-blocked?email=' + encodeURIComponent(email));
+                        const data = await response.json();
+                        if (data.blocked) {
+                                alert('Votre compte est bloqué.');
+                                return false;
+                        }
+                        return true;
+                }
+        </script>
+        {% if app.session.flashBag.has('error') %}
+                <div class="alert alert-danger">
+                        {{ app.session.flashBag.get('error')[0] }}
+                </div>
+        {% endif %}
+</div>

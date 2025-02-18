@@ -1,0 +1,283 @@
+@charset "UTF-8";
+/************** Import des variables **************/
+/* #################################### */
+/*          Variables partagées         */
+/* #################################### */
+/************** Couleur du thème **************/
+/************** Grid **************/
+/************** Margin **************/
+/************** Padding **************/
+/************** Radius **************/
+/* #################################### */
+/*                Blocks                */
+/* #################################### */
+/************** Brand **************/
+/************** Card **************/
+/************** Header **************/
+/************** Footer **************/
+/************** MainContent **************/
+/************************** Bar **************************/
+/************** Initialisation diverses **************/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5em;
+  font-family: SUSE, serif;
+  background: #1e2e3b;
+  overflow-x: hidden;
+}
+
+.Title {
+  flex: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.Subtitle {
+  border-radius: 30px;
+  color: white;
+}
+
+.BigTitle {
+  font-size: 36px;
+  letter-spacing: 2.4rem;
+  color: #FF8119;
+  margin-top: 0.625rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/************** Block **************/
+.Footer_static {
+  position: absolute;
+  bottom: 0.125em;
+  width: 100%;
+}
+.Footer_static_text {
+  display: flex;
+  background-color: #004c68;
+  justify-content: space-around;
+  align-items: center;
+  height: 3em;
+}
+.Footer_static_text > a {
+  text-decoration: none;
+  color: white;
+}
+.Footer_static_img {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50px;
+}
+
+.Footer_auto {
+  position: absolute;
+  bottom: auto;
+  width: 100%;
+}
+.Footer_auto_text {
+  display: flex;
+  background-color: #004c68;
+  justify-content: space-around;
+  align-items: center;
+  height: 3em;
+}
+.Footer_auto_text > a {
+  text-decoration: none;
+  color: white;
+}
+.Footer_auto_img {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50px;
+}
+
+.Form {
+  display: inline-block;
+  color: white;
+}
+.Form_text {
+  margin: 6%;
+  text-align: center;
+  color: midnightblue;
+}
+.Form_input, .Form button {
+  padding: 4px 14px 4px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.Form_g-recaptcha {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+.Form_input {
+  background: skyblue;
+  color: black;
+  border-radius: 10px;
+}
+
+.Title {
+  flex: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.Subtitle {
+  border-radius: 30px;
+  color: white;
+}
+
+.BigTitle {
+  font-size: 36px;
+  letter-spacing: 2.4rem;
+  color: #FF8119;
+  margin-top: 0.625rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.Home_title {
+  font-size: 36px;
+  letter-spacing: 0.8px;
+  color: #FF8119;
+  margin-top: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.Home_subtitle {
+  font-size: 20px;
+  color: cadetblue;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-top: 2rem;
+}
+.Home_text {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-top: 2rem;
+}
+.Home_list {
+  text-decoration: underline;
+  color: deepskyblue;
+}
+
+.Topnav {
+  display: flex;
+  background-color: #004c68;
+  justify-content: space-around;
+  align-items: center;
+  height: 4em;
+  width: 100%;
+}
+.Topnav_img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+}
+.Topnav > a {
+  text-decoration: none;
+  color: white;
+}
+@keyframes myAnim {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.Topnav > a:hover {
+  animation: myAnim 0.5s ease;
+  color: #FF8119;
+}
+
+/*# sourceMappingURL=style.css.map */

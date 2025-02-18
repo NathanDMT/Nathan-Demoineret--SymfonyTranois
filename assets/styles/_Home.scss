@@ -1,0 +1,39 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  &_title {
+    font-size: 36px;
+    letter-spacing: 0.8px;
+    color: #FF8119;
+    margin-top: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  &_subtitle {
+    font-size: 20px;
+    color: cadetblue;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 2rem;
+  }
+
+  &_text {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 2rem;
+  }
+
+  &_list {
+    text-decoration: underline;
+    color: deepskyblue;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="Topnav">
+    <img class="Topnav_img" src="/images/icon.png"/>
+
+    <a href="/">Accueil</a>
+
+    {% if app.user %}
+        <a href="/gallery">Ma galerie</a>
+        <a href="/logout">Déconnexion</a>
+
+    {% else %}
+
+        <a href="/register">Enregistrez-vous</a>
+        {% include 'login.html.twig' %}
+    {% endif %}
+
+    {% if app.user and is_granted('ROLE_ADMIN') %}
+        <a href="/admin">Administrer</a>
+    {% endif %}
+</div>

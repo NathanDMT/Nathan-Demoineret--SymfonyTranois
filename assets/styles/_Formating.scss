@@ -1,0 +1,28 @@
+.Title {
+  flex: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.Subtitle {
+  border-radius: 30px;
+  color: white;
+}
+
+.BigTitle {
+  font-size: 36px;
+  letter-spacing: 2.4rem;
+  color: #FF8119;
+  margin-top: 0.625rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}

@@ -1,0 +1,56 @@
+/* #################################### */
+/*          Variables partagées         */
+/* #################################### */
+
+/************** Couleur du thème **************/
+$primary-color: #1e2e3b;
+
+$card-color: #263a4a;
+
+/************** Grid **************/
+$grid-col1-width: 250px;
+$grid-col2-width: 1fr;
+
+/************** Margin **************/
+$margin-small: 2px;
+$margin-base: 5px;
+$margin-big: 10px;
+$margin-biggest: 15px;
+
+/************** Padding **************/
+$padding-small: 2px;
+$padding-base: 5px;
+$padding-big: 10px;
+$padding-biggest: 15px;
+
+/************** Radius **************/
+$radius-base: 5px;
+
+
+/* #################################### */
+/*                Blocks                */
+/* #################################### */
+
+/************** Brand **************/
+$brand-bg-color: #FF8119;
+$brand-font-color: #fff;
+$brand-font-family: 'Oxygen', sans-serif;
+
+/************** Card **************/
+$card-border-color: #d5e3ec;
+$card-border-color-hover: darken($card-border-color, 20%);
+
+$card-color: #FF8119;
+$card-color-darken: darken($card-color, 8%);
+
+/************** Header **************/
+$color-bg-header: #004c68;
+
+/************** Footer **************/
+$footer-bg-color: $color-bg-header;
+
+/************** MainContent **************/
+$mainContent-bg-color: #f7fafb;
+
+/************************** Bar **************************/
+$color-bg-bars: #102336;

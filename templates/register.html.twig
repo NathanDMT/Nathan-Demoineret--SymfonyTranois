@@ -1,0 +1,82 @@
+{% extends "base.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{% endblock %}
+
+{% block head %}
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+{% endblock %}
+
+{% block body %}
+    <div class="Topnav">
+        {% include 'navbar.html.twig' %}
+    </div>
+
+    <div class="Home">
+        <h1 class="Home_title">Page d'inscription</h1>
+        <p class=""></p>
+    </div>
+
+    <div class="container">
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form class="Form" method="POST">
+            <div>
+                <label class="Home_subtitle" for="email">Adresse Email</label>
+                <br/>
+                <input class="Form_text" type="email" id="registerEmail" name="registerEmail" required>
+            </div>
+
+            <div>
+                <label class="Home_subtitle" for="username">Nom d'utilisateur</label>
+                <br/>
+                <input class="Form_text" type="text" id="registerUsername" name="registerUsername" required>
+            </div>
+
+            <div>
+                <label class="Home_subtitle" for="age">Age</label>
+                <br/>
+                <input class="Form_text" type="number" id="registerAge" name="registerAge" required>
+            </div>
+
+            {#  <div class="h-captcha" data-sitekey="ES_14354dafc1954093bb88c32363834e99"></div>
+            <br/>#}
+
+            <button class="Form_input" type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LdO2tMqAAAAAA1HLwIX1sY8f-WuAVOR4iKr2QpI', {action: 'submit'}).then(function(token) {
+                    let form = event.target;
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'hidden');
+                    input.setAttribute('name', 'g-recaptcha-response');
+                    input.setAttribute('value', token);
+                    form.appendChild(input);
+                    form.submit();
+                });
+            });
+            return false;
+        }
+    </script>
+
+    <script>
+        window.onload = function() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA non chargé. Vérifiez vos clés ou l\'API.');
+            } else {
+                console.log('reCAPTCHA chargé avec succès.');
+            }
+        };
+    </script>
+{% endblock %}

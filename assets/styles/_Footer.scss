@@ -1,0 +1,50 @@
+ .Footer_static {
+    position: absolute;
+    bottom: 0.125em;
+    width: 100%;
+
+
+    &_text {
+      display: flex;
+      background-color: $footer-bg-color;
+      justify-content: space-around;
+      align-items: center;
+      height: 3em;
+
+    &>a {
+      text-decoration: none;
+      color: white;
+    } }
+
+    &_img {
+      height: 2.5em;
+      width: 2.5em;
+      border-radius: 50px;
+    }
+  }
+
+  .Footer_auto {
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+
+    &_text {
+      display: flex;
+      background-color: $footer-bg-color;
+      justify-content: space-around;
+      align-items: center;
+      height: 3em;
+
+      &>a {
+        text-decoration: none;
+        color: white;
+      }
+
+    }
+
+    &_img {
+      height: 2.5em;
+      width: 2.5em;
+      border-radius: 50px;
+    }
+  }

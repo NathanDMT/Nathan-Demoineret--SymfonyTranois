@@ -1,0 +1,27 @@
+{% extends './base.html.twig' %}
+
+{% block content %}
+    <div class="gallery-container">
+        <aside class="gallery-list">
+            <h3>Autres galeries :</h3>
+            <ul>
+                {% for gallery in galleries %}
+                    <li><a href="{{ path('gallery_view', {id: gallery.id}) }}">{{ gallery.user.username }}</a></li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <main class="gallery-display">
+            {% if randomGallery %}
+                <h2>Galerie de {{ randomGallery.user.username }}</h2>
+                <div class="photos">
+                    {% for photo in randomGallery.photos %}
+                        <img src="{{ asset(photo.url) }}" alt="Photo">
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Aucune galerie disponible.</p>
+            {% endif %}
+        </main>
+    </div>
+{% endblock %}

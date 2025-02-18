@@ -1,0 +1,66 @@
+{% extends "./base.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="Topnav">
+        {% include './navbar.html.twig' %}
+    </div>
+
+    <div class="Home">
+        {% if app.user %}
+            <h1 class="Home_title">Bienvenue {{ app.user.username }}</h1>
+        {% endif %}
+    </div>
+
+    <div class="gallery-container">
+        <button id="add-photo-btn">Ajouter une photo</button>
+
+        <div id="upload-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Ajouter une photo</h2>
+                <form action="{{ path('account_upload') }}" method="POST" enctype="multipart/form-data">
+                    <label for="photo">Choisir une image :</label>
+                    <input type="file" name="photo" accept="image/jpeg, image/png" required>
+
+                    <label for="publication_order">Numéro d'ordre :</label>
+                    <input type="number" name="publication_order" min="1" required>
+
+                    <button type="submit">Valider</button> <br><br>
+                </form>
+            </div>
+        </div>
+
+        <div class="photo-grid">
+            {% for photo in photos %}
+                <div class="photo-item">
+                    <img class="Card_home_image" src="{{ asset(photo.url) }}">
+                    <div class="photo-info">
+                        <p>Ajoutée le : {{ photo.dateUpload|date('d/m/Y H:i') }}</p>
+                        <p>Taille : {{ (photo.fileSize / 1024)|round(2) }} Ko</p>
+                        <p>Ordre de publication : {{ photo.publicationOrder ?? 'Non publié' }}</p>
+                        <form action="{{ path('account_delete_photo', {'id': photo.idPhoto}) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette photo ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ photo.idPhoto) }}">
+                            <button type="submit" class="delete-photo">Supprimer</button>
+                        </form> <br><br>
+                    </div>
+                </div>
+            {% else %}
+                <p>Aucune photo disponible.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("add-photo-btn").addEventListener("click", function() {
+            document.getElementById("upload-modal").style.display = "block";
+        });
+
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("upload-modal").style.display = "none";
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Galeries Publiques{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="Topnav">
+        {% include 'navbar.html.twig' %}
+    </div>
+
+    <div class="Home">
+        <h1 class="Home_title">Accueil</h1>
+        <p class=""></p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                {% if randomGallery and randomGallery.photos|length > 0 %}
+                    <h2 class="Home_subtitle">Galerie aléatoire</h2>
+                    <div class="Home_subtitle">
+                        <h3>{{ randomGallery.galleryName }}</h3>
+                        {% set firstPhoto = randomGallery.photos|first %}
+                        {% if firstPhoto and firstPhoto.path is not null %}
+                            <img src="{{ asset(firstPhoto.path) }}" alt="Photo de la galerie" />
+                        {% else %}
+                            <p class="Home_subtitle">Aucune photo disponible dans cette galerie.</p>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <p class="Home_subtitle">Aucune galerie publiée avec des photos disponibles.</p>
+                {% endif %}
+            </div>
+
+            <div class="col-4">
+                <p class="Home_text">Autres galeries</p>
+                <ul>
+                    {% for gallery in galleries %}
+                        <a  class="Home_list" href="{{ path('app_home', {'id': gallery.getIdGallery()}) }}">{{ gallery.user.username }}</a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
